@@ -1,0 +1,747 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">	
+  <title>Forma Living | Interior Design</title>
+  <link rel="icon" type="image/x-icon" src=""images/Forma_Icon.png"">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --cream: #f7f4ee;
+      --white: #ffffff;
+      --brown: #59483b;
+      --dark: #292720;
+      --muted: #82796e;
+      --accent: #b49a7a;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--cream);
+      color: var(--dark);
+      line-height: 1.7;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      width: 100%;
+      display: block;
+      object-fit: cover;
+    }
+
+    /* Navigation */
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 100;
+      background: rgba(247, 244, 238, 0.96);
+      border-bottom: 1px solid #e8e0d5;
+    }
+
+    nav {
+      max-width: 1200px;
+      margin: auto;
+      padding: 18px 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 25px;
+      font-weight: 600;
+      letter-spacing: 1px;
+    }
+
+    .logo span {
+      color: var(--accent);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 35px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 14px;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    /* Reusable sections */
+    section {
+      padding: 100px 7%;
+      scroll-margin-top: 70px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .eyebrow {
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 700;
+      margin-bottom: 14px;
+    }
+
+    h1, h2, h3 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 500;
+      line-height: 1.2;
+    }
+
+    h2 {
+      font-size: clamp(32px, 4vw, 46px);
+      margin-bottom: 18px;
+    }
+
+    .section-intro {
+      color: var(--muted);
+      max-width: 560px;
+      margin-bottom: 45px;
+    }
+
+    .btn {
+      display: inline-block;
+      background: var(--brown);
+      color: white;
+      padding: 14px 27px;
+      font-size: 13px;
+      letter-spacing: 1px;
+      transition: 0.3s;
+      border: 1px solid var(--brown);
+    }
+
+    .btn:hover {
+      background: transparent;
+      color: var(--brown);
+    }
+
+    /* Image placeholders */
+    .image-frame {
+      background: #e5ded2;
+      border: 1px solid #d6cbbb;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #847665;
+      text-align: center;
+    }
+
+    .image-frame .placeholder {
+      padding: 20px;
+      font-size: 13px;
+      letter-spacing: 1px;
+    }
+
+    .image-frame img {
+      height: 100%;
+      position: absolute;
+      inset: 0;
+    }
+
+    /* HOME */
+    #home {
+      min-height: 100vh;
+      padding-top: 130px;
+      display: flex;
+      align-items: center;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 65px;
+      align-items: center;
+    }
+
+    .hero h1 {
+      font-size: clamp(42px, 5.5vw, 70px);
+      margin-bottom: 25px;
+    }
+
+    .hero h1 span {
+      color: var(--accent);
+      font-style: italic;
+    }
+
+    .hero p {
+      color: var(--muted);
+      margin-bottom: 32px;
+      max-width: 450px;
+    }
+
+    .hero-image {
+      height: 530px;
+      border: 10px solid white;
+      box-shadow: 0 12px 35px rgba(54, 43, 30, 0.08);
+    }
+
+    .hero-note {
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-top: 14px;
+      color: var(--muted);
+      text-align: right;
+    }
+
+    /* ABOUT STRIP */
+    .intro-strip {
+      background: var(--brown);
+      color: white;
+      text-align: center;
+      padding: 65px 7%;
+    }
+
+    .intro-strip p {
+      max-width: 720px;
+      margin: 15px auto 0;
+      color: #e5ddd3;
+    }
+
+    /* PRODUCTS */
+    #products {
+      background: var(--white);
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .product-card {
+      min-width: 0;
+    }
+
+    .product-image {
+      height: 330px;
+      margin-bottom: 20px;
+    }
+
+    .product-card h3 {
+      font-size: 23px;
+      margin-bottom: 8px;
+    }
+
+    .product-card p {
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .product-number {
+      color: var(--accent);
+      font-size: 12px;
+      letter-spacing: 2px;
+      margin-bottom: 10px;
+    }
+
+    /* FEATURE */
+    .feature {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 70px;
+      align-items: center;
+    }
+
+    .feature-image {
+      height: 440px;
+    }
+
+    .feature p {
+      color: var(--muted);
+      margin-bottom: 25px;
+    }
+
+    .feature-list {
+      list-style: none;
+      margin-bottom: 30px;
+    }
+
+    .feature-list li {
+      padding: 10px 0;
+      border-bottom: 1px solid #ded6ca;
+      font-size: 14px;
+    }
+
+    .feature-list li::before {
+      content: "—  ";
+      color: var(--accent);
+    }
+
+    /* CONTACT */
+    #contacts {
+      background: #eae3d8;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 80px;
+    }
+
+    .contact-details {
+      margin-top: 30px;
+    }
+
+    .contact-details div {
+      margin-bottom: 23px;
+    }
+
+    .contact-details strong {
+      display: block;
+      font-size: 12px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 5px;
+    }
+
+    .contact-details p {
+      color: var(--muted);
+    }
+
+    form {
+      background: white;
+      padding: 35px;
+    }
+
+    label {
+      display: block;
+      font-size: 13px;
+      margin-bottom: 6px;
+    }
+
+    input, textarea, select {
+      width: 100%;
+      padding: 13px;
+      margin-bottom: 20px;
+      border: 1px solid #ded6ca;
+      background: #fff;
+      font-family: inherit;
+      font-size: 14px;
+      color: var(--dark);
+    }
+
+    textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    form .btn {
+      cursor: pointer;
+      width: 100%;
+    }
+
+    .form-note {
+      color: var(--muted);
+      font-size: 12px;
+      margin-top: 12px;
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--dark);
+      color: #e8e0d5;
+      padding: 30px 7%;
+    }
+
+    .footer-inner {
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+      font-size: 12px;
+    }
+
+    footer a:hover {
+      color: var(--accent);
+    }
+
+    /* MOBILE */
+    @media (max-width: 800px) {
+      .nav-links {
+        gap: 16px;
+      }
+
+      .hero, .feature, .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 35px;
+      }
+
+      .hero-image {
+        height: 370px;
+      }
+
+      .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px 16px;
+      }
+
+      .product-image {
+        height: 260px;
+      }
+
+      .feature-image {
+        height: 350px;
+      }
+
+      section {
+        padding: 75px 6%;
+      }
+
+      #home {
+        padding-top: 120px;
+      }
+
+      .contact-grid {
+        gap: 30px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      nav {
+        padding: 15px 5%;
+      }
+
+      .logo {
+        font-size: 21px;
+      }
+
+      .nav-links {
+        gap: 12px;
+      }
+
+      .nav-links a {
+        font-size: 12px;
+      }
+
+      .product-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .product-image {
+        height: 320px;
+      }
+
+      .hero-image {
+        height: 300px;
+      }
+
+      form {
+        padding: 23px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <nav>
+      <a href="#home" class="logo">FORMA<span>.</span></a>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#products">Products</a></li>
+        <li><a href="#contacts">Contacts</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- HOME -->
+    <section id="home">
+      <div class="container hero">
+        <div>
+          <div class="eyebrow">Thoughtful Interior Design</div>
+          <h1>Spaces that feel like <span>home.</span></h1>
+          <p>
+            Discover beautiful room designs created around comfort,
+            simplicity, and the way you live. Let us help you transform
+            your space into something extraordinary.
+          </p>
+          <a href="#products" class="btn">EXPLORE OUR DESIGNS</a>
+        </div>
+
+        <!-- Replace this frame with your hero image -->
+        <div>
+          <div class="image-frame hero-image">
+            <div class="placeholder">
+				<img src="images/Main_Room_Design.png"
+					alt="Modern living room design">
+              #YOUR MAIN ROOM DESIGN IMAGE<br><br>
+              #Recommended: 1200 × 1400 px
+            </div>
+          </div>
+          <div class="hero-note">Designed for everyday living</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- INTRODUCTION -->
+    <div class="intro-strip">
+      <div class="eyebrow">Our Philosophy</div>
+      <h2>Beautiful by design.</h2>
+      <p>
+        We believe every room has the potential to become something special.
+        From quiet bedrooms to welcoming living spaces, good design brings
+        beauty and function together.
+      </p>
+    </div>
+
+    <!-- PRODUCTS -->
+    <section id="products">
+      <div class="container">
+        <div class="eyebrow">Our Collection</div>
+        <h2>Explore our designs.</h2>
+        <p class="section-intro">
+          Find inspiration for every corner of your home. Browse our
+          selected room styles and discover the look that suits you.
+        </p>
+
+        <div class="product-grid">
+
+          <article class="product-card">
+            <div class="image-frame product-image">
+              <div class="placeholder">
+				<img src="images/Collection/Living_Room.png"
+					alt="Modern living room design">
+			  </div>
+            </div>
+            <div class="product-number">01 / LIVING</div>
+            <h3>Living Room</h3>
+            <p>Warm, welcoming spaces designed for relaxing and connecting.</p>
+          </article>
+
+          <article class="product-card">
+            <div class="image-frame product-image">
+              <div class="placeholder">
+				<img src="images/Collection/Bedroom_Room.png"
+					alt="Modern Bedroom design">
+			  </div>
+            </div>
+            <div class="product-number">02 / BEDROOM</div>
+            <h3>Bedroom</h3>
+            <p>Peaceful interiors made for comfort, rest, and relaxation.</p>
+          </article>
+
+          <article class="product-card">
+            <div class="image-frame product-image">
+              <div class="placeholder">
+				<img src="images/Collection/Kitchen_Room.png"
+					alt="Modern Kitchen room design">
+			  </div>
+            </div>
+            <div class="product-number">03 / KITCHEN</div>
+            <h3>Kitchen</h3>
+            <p>Practical, refined designs that bring people together.</p>
+          </article>
+
+          <article class="product-card">
+            <div class="image-frame product-image">
+              <div class="placeholder">
+				<img src="images/Collection/Dining_Room.png"
+					alt="Modern Dining room design">
+			  </div>
+            </div>
+            <div class="product-number">04 / DINING</div>
+            <h3>Dining Room</h3>
+            <p>Thoughtful dining spaces for everyday meals and special moments.</p>
+          </article>
+
+          <article class="product-card">
+            <div class="image-frame product-image">
+              <div class="placeholder">
+				<img src="images/Collection/Workspace_Room.jpg"
+					alt="Modern Workspace room design">
+			  </div>
+            </div>
+            <div class="product-number">05 / WORKSPACE</div>
+            <h3>Workspace</h3>
+            <p>Clean, inspiring environments for focus and productivity.</p>
+          </article>
+
+          <article class="product-card">
+            <div class="image-frame product-image">
+              <div class="placeholder">
+				<img src="images/Collection/Bathroom_ Room.jpg"
+					alt="Modern Bathroom design">
+			  </div>
+            </div>
+            <div class="product-number">06 / BATHROOM</div>
+            <h3>Bathroom</h3>
+            <p>Simple, calming interiors with a touch of everyday luxury.</p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURE -->
+    <section id="about">
+      <div class="container feature">
+        <div class="image-frame feature-image">
+          <div class="placeholder">
+				<img src="images/Featured_Room_Design.png"
+					alt="Featured Room Design">
+            #FEATURED DESIGN IMAGE<br><br>
+            #Recommended: 1200 × 1000 px
+          </div>
+        </div>
+
+        <div>
+          <div class="eyebrow">Made for You</div>
+          <h2>Your vision, our inspiration.</h2>
+          <p>
+            Every home is different. We focus on creating spaces that reflect
+            your personality, complement your lifestyle, and make the most
+            of every square metre.
+          </p>
+
+          <ul class="feature-list">
+            <li>Modern and timeless concepts</li>
+            <li>Functional use of space</li>
+            <li>Carefully coordinated colours</li>
+            <li>Comfortable and practical layouts</li>
+          </ul>
+
+          <a href="#contacts" class="btn">LET'S TALK ABOUT YOUR SPACE</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACTS -->
+    <section id="contacts">
+      <div class="container contact-grid">
+        <div>
+          <div class="eyebrow">Get in Touch</div>
+          <h2>Let's create something beautiful.</h2>
+          <p class="section-intro">
+            Have a room in mind or need help choosing a design?
+            Get in touch and tell us about your ideas.
+          </p>
+
+          <!-- Replace these sample details with your own -->
+          <div class="contact-details">
+            <div>
+              <strong>Email</strong>
+              <p>hello@example.com</p>
+            </div>
+            <div>
+              <strong>Phone / WhatsApp</strong>
+              <p>+60 12 345 6789</p>
+            </div>
+            <div>
+              <strong>Location</strong>
+              <p>Your City, Malaysia</p>
+            </div>
+          </div>
+        </div>
+
+        <form id="contactForm">
+          <label for="name">Your Name</label>
+          <input id="name" name="name" type="text"
+                 placeholder="Enter your name" required>
+
+          <label for="email">Email Address</label>
+          <input id="email" name="email" type="email"
+                 placeholder="Enter your email" required>
+
+          <label for="room">Room Type</label>
+          <select id="room" name="room" required>
+            <option value="">Select a room</option>
+            <option>Living Room</option>
+            <option>Bedroom</option>
+            <option>Kitchen</option>
+            <option>Dining Room</option>
+            <option>Workspace</option>
+            <option>Bathroom</option>
+            <option>Whole House</option>
+            <option>Other</option>
+          </select>
+
+          <label for="message">Tell Us About Your Project</label>
+          <textarea id="message" name="message"
+                    placeholder="Describe your ideas..." required></textarea>
+
+          <button class="btn" type="submit">SEND ENQUIRY</button>
+          <p class="form-note" id="formNote">
+            This demo form opens your email application to send the enquiry.
+          </p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <p>© <span id="year"></span> Forma Living. All rights reserved.</p>
+      <p><a href="#home">Back to top ↑</a></p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+
+    document.getElementById("contactForm").addEventListener("submit",
+      function (event) {
+        event.preventDefault();
+
+        const name = document.getElementById("name").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const room = document.getElementById("room").value;
+        const message = document.getElementById("message").value.trim();
+
+        // Replace with your actual business email.
+        const recipient = "hello@example.com";
+
+        const subject = encodeURIComponent("Room Design Enquiry - " + name);
+        const body = encodeURIComponent(
+          "Name: " + name +
+          "\nEmail: " + email +
+          "\nRoom Type: " + room +
+          "\n\nProject Details:\n" + message
+        );
+
+        document.getElementById("formNote").textContent =
+          "Opening your email application. If it does not open, check your email settings.";
+
+        window.location.href =
+          "mailto:" + recipient + "?subject=" + subject + "&body=" + body;
+      }
+    );
+  </script>
+
+</body>
+</html>
